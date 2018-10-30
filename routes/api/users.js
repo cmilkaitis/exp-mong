@@ -42,8 +42,7 @@ router.get('/:name', (req, res) => {
   .catch(err => res.json( {status: "error", message: err} ))
 })
 
-
-// Protected 
+// Should be Protected based on if user is logged in
 router.delete('/:name', (req, res) => {
   const { name } = req.params
   User

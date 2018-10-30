@@ -10,17 +10,15 @@ app.use(bp.urlencoded({extended:false}))
 app.use(bp.json())
 
 mongoose
-  .connect(db)
+  .connect(db, {useNewUrlParser: true})
   .then(() => {
-    console.log("mongo db connected")
+    console.log("Connected to MONGO")
   })
   .catch(err => console.log(err))
 
 // ROUTES
 const users = require('./routes/api/users')
 app.use('/api/users', users)
-
-
 
 const port = process.env.PORT|| 3000
 app.listen(port, console.log(`Listening on ${port}`))
